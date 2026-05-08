@@ -4394,6 +4394,8 @@ sub _domain_working {
 
     confess "Missing request" if !defined $req;
 
+    return if $req->command =~ /list_cpu_models/;
+
     if (!$id_domain) {
         $id_domain = $req->defined_arg('id_base');
         if (!$id_domain) {
