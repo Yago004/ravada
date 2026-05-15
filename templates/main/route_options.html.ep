@@ -68,6 +68,8 @@
         <button ng-show="route.id" class="btn btn-outline-secondary"
             ng-disabled="formNetwork.$pristine"
         ng-click="load_network(route.id)"><%=l 'Cancel' %></button>
+        <button ng-show="!route.id" class="btn btn-outline-secondary"
+        onclick="location='/admin/routes'"><%=l 'Cancel' %></button>
         <button
             class="btn btn-primary"
             ng-click="update_network()"
