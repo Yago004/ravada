@@ -2692,3 +2692,27 @@ msgstr "pot crear volums de disc"
 
 msgid "disk space limit"
 msgstr "espai límit del disc"
+
+msgid "can create virtual networks."
+msgstr "pot crear xarxes virtuals."
+
+msgid "can expose ports from any virtual machine."
+msgstr "pot exposar ports de qualsevol màquina virtual."
+
+msgid "can expose ports from clones of own virtual machines."
+msgstr "pot exposar ports de clons de les seves màquines virtuals."
+
+msgid "can hibernate own virtual machines."
+msgstr "pot hibernar les seves màquines virtuals."
+
+msgid "can manage all the virtual networks."
+msgstr "pot gestionar totes les màquines virtuals."
+
+msgid "can get a screenshot from clones of own virtual machines."
+msgstr "pot realitzar una captura de pantalla de clons de les seves màquines virtuals."
+
+msgid "the user can start and access the screen of any virtual machine"
+msgstr "l'usuari pot iniciar i accedir a la pantalla de qualsevol màquina virtual"
+
+msgid "Are you sure you want to remove this user?"
+msgstr "Estàs segur de voler eliminar aquest usuari?"

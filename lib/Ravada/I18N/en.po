@@ -2523,3 +2523,24 @@ msgstr "disk space limit"
 
 msgid "can create virtual networks."
 msgstr "can create virtual networks."
+
+msgid "can expose ports from any virtual machine."
+msgstr "can expose ports from any virtual machine."
+
+msgid "can expose ports from clones of own virtual machines."
+msgstr "can expose ports from clones of own virtual machines."
+
+msgid "can hibernate own virtual machines."
+msgstr "can hibernate own virtual machines."
+
+msgid "can manage all the virtual networks."
+msgstr "can manage all the virtual networks."
+
+msgid "can get a screenshot from clones of own virtual machines."
+msgstr "can get a screenshot from clones of own virtual machines."
+
+msgid "the user can start and access the screen of any virtual machine"
+msgstr "the user can start and access the screen of any virtual machine"
+
+msgid "Are you sure you want to remove this user?"
+msgstr "Are you sure you want to remove this user?"

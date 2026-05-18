@@ -2600,4 +2600,31 @@ msgid "Unused volumes"
 msgstr "Volúmenes sin utilizar"
 
 msgid "can create disk volumes"
-msgstr ""
+msgstr "puede crear volúmenes de disco"
+
+msgid "disk space limit"
+msgstr "espacio límite del disco"
+
+msgid "can create virtual networks."
+msgstr "puede crear máquinas virtuales."
+
+msgid "can expose ports from any virtual machine."
+msgstr "puede exponer puertos de cualquier máquina virtual."
+
+msgid "can expose ports from clones of own virtual machines."
+msgstr "puede exponer puertos de clones de sus máquinas virtuales."
+
+msgid "can hibernate own virtual machines."
+msgstr "puede hibernar sus máquinas virtuales."
+
+msgid "can manage all the virtual networks."
+msgstr "puede gestionar todas las máquines virtuales."
+
+msgid "can get a screenshot from clones of own virtual machines."
+msgstr "puede realizar una captura de pantalla de clones de sus máquinas virtuales."
+
+msgid "the user can start and access the screen of any virtual machine"
+msgstr "el usuario puede iniciar y acceder a la pantalla de cualquier máquina virtual"
+
+msgid "Are you sure you want to remove this user?"
+msgstr "¿Estás seguro de querer eliminar este usuario?"
