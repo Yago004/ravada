@@ -572,7 +572,7 @@ ravadaApp.directive("solShowMachine", swMach)
         }
         else if ((action === 'shutdown' || action === 'force_shutdown') && machine.autostart == 1 && !confirmed) {
             machine.pending_shutdown_action = action;
-            $('#afc_' + mahchine.id).modal('show');
+            $('#afc_' + machine.id).modal('show');
         }
         else {
             $http.get('/'+target+'/'+action+'/'+machine.id+'.json')
