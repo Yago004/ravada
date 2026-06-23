@@ -2559,3 +2559,6 @@ msgstr "Attention this machine has the autostart option activated!"
 
 msgid "Are you sure you want to shutdown the machine?"
 msgstr "Are you sure you want to shutdown the machine?"
+
+msgid "Are you sure you want to shutdown the machine "
+msgstr "Are you sure you want to shutdown the machine "

@@ -6,6 +6,24 @@
         <div ng-controller="machinesPage" ng-init="subscribe_all('<%= url_for('ws_subscribe')->to_abs %>');n_clones_hide=<%= $n_clones_hide %>;check_netdata='<%= $check_netdata %>'"
             id="controller"
         >
+        <div class="modal fade" id="global_autostart_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><%=l 'Shutdown confirmation' %></h4>
+                </div>
+                <div class="modal-body">
+                    <p><%=l 'Attention this machine has the autostart option activated!' %></p>
+                    <p><%=l 'Are you sure you want to shutdown the machine?' %> </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="action('machine', action_to_confirm, machine_to_confirm, true)" class="btn btn-danger" data-dismiss="modal"><%=l 'Yes' %></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" 
+                        ><%=l 'No' %></button>
+                </div>
+            </div>
+        </div>
+    </div>
     %= include 'bootstrap/navigation'
     <div id="page-wrapper">
       <div id="admin-content">
@@ -295,34 +313,12 @@
                        </button>
                        <button
                             type="button" class="btn btn-danger btn-sm"
-                         ng-click="action('machine','shutdown',machine, false)"
+                         ng-click="prepare_shutdown(machine, 'shutdown')"
                          ng-disabled="!machine.is_active"
                          ng-show="machine.can_shutdown"
                          title="<%=l 'ShutDown' %>">
                           <i class="fa fa-power-off"></i>
                        </button>
-                        <!-- Pop-up window confirming the shutdown action and force shutdown. #issue 2185 -->
-                        <div id="afc_{{machine.id}}" class="modal fade">
-                            <div class="modal-dialog">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title"><%=l 'Shutdown confirmation' %></h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p><%=l 'Attention this machine has the autostart option activated !' %> </p>
-                                        <p><%=l 'Are you sure you want to shutdown the machine ?' %> </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" ng-click="action('machine', machine.pending_shutdown_action, machine, true)" class="btn btn-danger" data-dismiss="modal"><%=l 'Yes' %></button>
-                                        <button type="button" ng-click="cancel_modal(machine, undefined)" class="btn btn-secondary" data-dismiss="modal" 
-                                            ><%=l 'No' %></button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
                        <button type="button" class="btn btn-primary btn-sm"
                          ng-click="action('machine','view-new-tab',machine)"
                          ng-show="machine.can_view"

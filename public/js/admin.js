@@ -571,8 +571,10 @@ ravadaApp.directive("solShowMachine", swMach)
             window.location.assign('/machine/view/' + machine.id + '.html');
         }
         else if ((action === 'shutdown' || action === 'force_shutdown') && machine.autostart == 1 && !confirmed) {
-            machine.pending_shutdown_action = action;
-            $('#afc_' + machine.id).modal('show');
+            $scope.maadminchine_to_confirm = machine; 
+            $scope.action_to_confirm = action;
+            $('#global_autostart_modal').modal('show'); 
+            return;
         }
         else {
             $http.get('/'+target+'/'+action+'/'+machine.id+'.json')
@@ -587,6 +589,15 @@ ravadaApp.directive("solShowMachine", swMach)
                     }
                 })
             ;
+        }
+    };
+    $scope.prepare_shutdown = function(machine, action_name) {
+        if (machine.autostart == 1) {
+            $scope.machine_to_confirm = machine;
+            $scope.action_to_confirm = action_name;
+            $('#global_autostart_modal').modal('show');
+        } else {
+            $scope.action('machine', action_name, machine, true);
         }
     };
     $scope.set_autostart= function(machineId, value) {

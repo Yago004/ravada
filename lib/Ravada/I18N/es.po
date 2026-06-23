@@ -2649,3 +2649,6 @@ msgstr "¡Atención esta máquina tiene la opción de autoarranque activada!"
 
 msgid "Are you sure you want to shutdown the machine?"
 msgstr "¿Estás seguro de querer apagar la máquina?"
+
+msgid "Are you sure you want to shutdown the machine "
+msgstr "¿Estás seguro de querer apagar la máquina "
