@@ -8,32 +8,44 @@
                 <input type="datetime-local" ng-model="exec_time" /> [ {{timezone}} ]
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12" align="left">
-                <input type="checkbox" name="exec_sequentially" ng-model="exec_sequentially"
-                    ng-true-value="1" ng-false-value="0"
-                > <label><%=l 'Exec clones sequentially' %></label>
-            </div>
-        </div>
-        <div class="row">
+        <div ng-hide="start_clones_prompt || shutdown_clones" class="row">
             <button class="btn btn-primary mr-2" id="start-clones" name="start-clones"
                 ng-disabled="isPastTime(exec_time, exec_time_start)"
-                ng-click="request('start_clones',{ 'id_domain': showmachine.id, 'at': isPastTime(exec_time) ? '' : getUnixTimeFromDate(exec_time), 'exec_sequentially': exec_sequentially })"
+                ng-click="start_clones_prompt=1; shutdown_clones=0"
             >
                 <%=l 'Start all clones' %>
             </button>
             <button class="btn btn-danger" id="shutdown-clones" name="shutdown-clones"
                 ng-disabled="isPastTime(exec_time, exec_time_start)"
-                ng-click="shutdown_clones=1"
+                ng-click="shutdown_clones=1; start_clones_prompt=0"
             >
                 <%=l 'Shutdown all clones' %>
             </button>
         </div>
-        <div ng-show="shutdown_clones">
-                        <b><%=l 'Danger'%></b>!<br/>
-                        <b><%=l 'Keep in mind that there may be users using a clone' %>.</b>
-                        <%=l 'Are you sure ?'%><br/>
-                        <a type="button" class="btn btn-primary text-white"
+        <div ng-show="start_clones_prompt" class="mt-3 border border-secondary p-3 rounded">
+            <div class="row mb-2">
+                <div class="col-md-12" align="left">
+                    <input type="checkbox" name="exec_sequentially" ng-model="exec_sequentially"
+                        ng-true-value="1" ng-false-value="0"
+                    > <label><%=l 'Exec clones sequentially' %></label>
+                </div>
+            </div>
+
+            <a type="button" class="btn btn-secondary text-white mr-2"
+                ng-click="start_clones_prompt=0"
+            ><%=l 'Cancel' %></a>
+        
+            <a type="button" class="btn btn-primary text-white" 
+                ng-click="request('start_clones',{ 'id_domain': showmachine.id, 'at': isPastTime(exec_time) ? '' : getUnixTimeFromDate(exec_time), 'exec_sequentially': exec_sequentially }); start_clones_prompt=0"
+            ><%=l 'Yes, start all clones' %></a>
+        </div>
+        <div ng-show="shutdown_clones" class="mt-3 border border-danger p-3 rounded">
+                        <p class="mb-3">
+                            <b class="text-danger"><%=l 'Danger'%>!</b><br/>
+                            <b><%=l 'Keep in mind that there may be users using a clone' %>.</b><br/>
+                            <%=l 'Are you sure ?'%>
+                        </p>
+                        <a type="button" class="btn btn-primary text-white mr-2"
                             ng-click="shutdown_clones=0"
                         ><%=l 'No' %></a>
                         <a type="button" class="btn btn-danger text-white" ng-click="request('shutdown_clones',{ 'id_domain': showmachine.id, 'at': isPastTime(exec_time) ? '' : getUnixTimeFromDate(exec_time) });shutdown_clones=0"

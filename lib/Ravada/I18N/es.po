@@ -2673,3 +2673,6 @@ msgstr "el usuario puede iniciar y acceder a la pantalla de cualquier máquina v
 
 msgid "Are you sure you want to remove this user?"
 msgstr "¿Estás seguro de querer eliminar este usuario?"
+
+msgid "Yes, start all clones"
+msgstr "Sí, iniciar todos los clones"
