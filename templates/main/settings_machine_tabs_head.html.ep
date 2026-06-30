@@ -32,7 +32,7 @@
     %   if ( $USER->can_remove_machine($domain->id)) {
         <a class="nav-link remove" id="v-pills-remove-tab" href="#v-pills-remove" data-toggle="pill" role="tab" aria-controls="v-pills-remove" aria-selected="false"><%=l 'Remove' %></a>
     %   }
-    %   if ($USER->is_admin && $domain->is_base){
+    %   if ($USER->is_admin && $domain->is_base && $domain->has_clones){
         <a class="nav-link" id="v-pills-remove-tab" href="#v-pills-clones" data-toggle="pill" role="tab" aria-controls="v-pills-clones" aria-selected="false"><%=l 'Clones' %></a>
 %   }
     %   if ($USER->is_admin){
